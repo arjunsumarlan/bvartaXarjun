@@ -16,6 +16,14 @@ cd solution_2/studentService && npm install && cd ..
 
 ### Running with Docker - orchestrator
 
+create file .env on orchestrator root directory
+
+```
+ENDPOINT={YOUR PUBLIC IP ADDRESS}
+```
+
+change it with your ip address, example 100.5.50.135
+
 ```
 git clone https://github.com/arjunsumarlan/bvartaXarjun.git
 cd solution_2/orchestrator

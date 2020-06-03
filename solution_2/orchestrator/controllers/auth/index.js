@@ -1,12 +1,14 @@
 const express = require('express');
 const axios = require('axios');
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = function initAuth(app) {
     const authRoutes = express.Router();
 
     authRoutes.post('/register', async (req, res) => {
         try {
-            const { data } = await axios.post('http://10.5.50.135:3003/auth/register', {
+            const { data } = await axios.post(`http://${process.env.ENDPOINT}:3003/auth/register`, {
                 username: req.body.username,
                 password: req.body.password,
                 admin: req.body.isAdmin
@@ -24,7 +26,7 @@ module.exports = function initAuth(app) {
 
     authRoutes.post('/login', async (req, res) => {
         try {
-            const { data } = await axios.post('http://10.5.50.135:3003/auth/login', {
+            const { data } = await axios.post(`http://${process.env.ENDPOINT}:3003/auth/login`, {
                 username: req.body.username,
                 password: req.body.password,
                 deviceId: req.body.deviceId
@@ -42,7 +44,7 @@ module.exports = function initAuth(app) {
 
     authRoutes.post('/logout', async (req, res) => {
         try {
-            const { data } = await axios.post('http://10.5.50.135:3003/auth/logout', {
+            const { data } = await axios.post(`http://${process.env.ENDPOINT}:3003/auth/logout`, {
                 username: req.body.username,
                 password: req.body.password,
                 deviceId: req.body.deviceId

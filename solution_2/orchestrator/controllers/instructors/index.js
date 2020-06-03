@@ -1,5 +1,7 @@
 const express = require('express');
 const axios = require('axios');
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = function initInstructor(app) {
     const instructorRoutes = express.Router();
@@ -7,7 +9,7 @@ module.exports = function initInstructor(app) {
     // route middleware verify a token
     instructorRoutes.use(async function (req, res, next) {
         try {
-            const { data } = await axios.post('http://10.5.50.135:3003/auth/verify', {}, {
+            const { data } = await axios.post(`http://${process.env.ENDPOINT}:3003/auth/verify`, {}, {
                 headers: {
                     "x-access-token": req.headers['x-access-token'],
                     "x-access-username": req.headers['x-access-username'],
@@ -29,7 +31,7 @@ module.exports = function initInstructor(app) {
 
     instructorRoutes.get('/', async (req, res) => {
         try {
-            const { data } = await axios.get('http://10.5.50.135:3002');
+            const { data } = await axios.get(`http://${process.env.ENDPOINT}:3002`);
             res.send(data);
 
         } catch (err) {
@@ -42,7 +44,7 @@ module.exports = function initInstructor(app) {
 
     instructorRoutes.post('/', async (req, res) => {
         try {
-            const { data } = await axios.post('http://10.5.50.135:3002', {
+            const { data } = await axios.post(`http://${process.env.ENDPOINT}:3002`, {
                 name: req.body.name
             });
 
