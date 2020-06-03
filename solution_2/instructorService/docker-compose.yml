@@ -1,0 +1,15 @@
+version: "2"
+services:
+  instructor:
+    container_name: instructor
+    restart: always
+    build: .
+    ports:
+      - "3002:3002"
+    links:
+      - dbinstructor
+  dbinstructor:
+    container_name: dbinstructor
+    image: mongo
+    ports:
+      - "27019:27017"

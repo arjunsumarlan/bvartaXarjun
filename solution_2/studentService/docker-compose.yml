@@ -1,0 +1,15 @@
+version: "2"
+services:
+  student:
+    container_name: student
+    restart: always
+    build: .
+    ports:
+      - "3001:3001"
+    links:
+      - dbstudent
+  dbstudent:
+    container_name: dbstudent
+    image: mongo
+    ports:
+      - "27018:27017"

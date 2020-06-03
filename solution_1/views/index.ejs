@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel="icon" href="/images/logo.png" />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-search@2.9.8/dist/leaflet-search.src.css" />
+  <script src="https://unpkg.com/leaflet-search@2.9.8/dist/leaflet-search.src.js" crossorigin=""></script>
+</head>
+
+<body>
+  <h2 id="title"><%= title %></h2>
+  <p>Here, you can add as many markers with its popup as you want!</p>
+  <p>Just click and click again!</p>
+
+  <div id="modal" class="modal">
+    <div class="modal-content" draggable="true">
+      <span class="close">&times;</span>
+      <h2>Add New Marker</h2>
+      <form>
+        <label>Latitude</label>
+        <input id="lat" type="text" />
+        <label>Longitude</label>
+        <input id="long" type="text" />
+        <label>Popup title</label>
+        <input id="popup-title" type="text" />
+        <label>Popup message</label>
+        <textarea id="popup-message" name="popup" rows="4" cols="30"></textarea>
+        <button id="submit-btn" type="button" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="loader" class="loader"></div>
+  <div id="mapid"></div>
+
+  <script src="/javascripts/script.js"></script>
+  <script src="/javascripts/utils.js"></script>
+  <script>
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+body {
+  padding: 50px;
+  padding-top: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+form {
+  display: flex;
+  flex-direction: column; 
+  width: 300px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea, .submit-btn {
+  padding: 5px;
+  margin: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+h2, p {
+  text-align: center;
+}
+
+#mapid { 
+  height: 77vh; 
+}
+
+.marker-text {
+  width: 200px;
+  transform: translateY(-15px);
+  margin-left: -25px;
+  color: #775711;
+  font-weight: bolder;
+  animation-name: text;
+  animation-duration: 1.5s;
+}
+
+@keyframes text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.marker-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #c30b82;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+  animation-name: baloon;
+  animation-duration: 1.5s;
+}
+
+.marker-pin::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  margin-left: 7px;
+  margin-top: 7px;
+  background: #f1bcdf;
+  position: absolute;
+  border-radius: 50%;
+  animation-name: circle;
+  animation-duration: 1.5s;
+}
+
+.new-marker-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #c3890b;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+  animation-name: baloon;
+  animation-duration: 1.5s;
+}
+
+.new-marker-pin::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  margin-left: 7px;
+  margin-top: 7px;
+  background: #f1e5bc;
+  position: absolute;
+  border-radius: 50%;
+  animation-name: circle;
+  animation-duration: 1.5s;
+}
+ 
+.custom-div-icon i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+}
+
+@keyframes circle {
+  0% {
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    margin-left: 13px;
+    margin-top: 10px;
+  }
+  50% {
+    opacity: 0.5;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    margin-top: 8px;
+  }
+  100% {
+    opacity: 1;
+    width: 15px;
+    height: 15px;
+    margin-left: 7px;
+    margin-top: 7px;
+  }
+}
+
+@keyframes baloon {
+  0% {
+    opacity: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50% 50% 50% 0;
+  }
+  50% {
+    opacity: 0.5;
+    width: 35px;
+    height: 35px;
+    border-radius: 50% 50% 50% 0;
+    margin-top: -40px;
+  }
+  100% {
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50% 50% 50% 0;
+    margin-top: -10px;
+  }
+}
+
+.loader {
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.remove-btn {
+  margin-bottom: 15px;
+  margin-left: 15px;
+  background-color: rgb(197, 94, 94);
+  border: none;
+  outline: none;
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #ffffff;
+}
+
+.modal-btn {
+  margin-bottom: 15px;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 10000000;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+[draggable=true] {
+  cursor: move;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 320px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
